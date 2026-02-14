@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Thư gửi em trang iuuu ❤️</title>
+</head>
+
+<body onload="typeWriter()">
+    <div class="container">
+        <h1>Gửi Em...</h1>
+
+        <div class="photo-gallery">
+            <img src="/images/anh1.jpg" alt="Kỷ niệm 1" class="photo-item">
+            <img src="/images/anh2.jpg" alt="Kỷ niệm 2" class="photo-item">
+            <img src="/images/anh3.jpg" alt="Kỷ niệm 3" class="photo-item">
+        </div>
+
+        <p id="typing-text" style="font-size: 1.2rem; line-height: 1.8; color: #444; min-height: 120px;"></p>
+
+        <hr style="border: 0; border-top: 1px solid #ffc1e3; margin: 30px 0;">
+
+        <h3>Trang có yeu anh không za?</h3>
+        <div style="height: 60px; position: relative; margin-top: 20px;">
+            <button class="btn-valentine" onclick="sayYes()">Cóaaa ❤️</button>
+            <button class="btn-valentine" id="no-btn" onmouseover="moveButton()" ontouchstart="moveButton()"
+                style="position: absolute; transition: all 0.2s ease; z-index: 100;">
+                Không 😡
+            </button>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <audio id="bg-music" loop>
+                <source src="/audio/nhac.mp3" type="audio/mpeg">
+            </audio>
+            <button onclick="toggleMusic()" id="music-btn"
+                style="background:none; border:1px solid #ff4081; padding: 5px 15px; border-radius:20px; color:#ff4081; cursor:pointer">
+                Phát nhạc 🎵
+            </button>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+    <script>
+        function toggleMusic() {
+            const music = document.getElementById('bg-music');
+            const btn = document.getElementById('music-btn');
+            if (music.paused) {
+                music.play();
+                btn.innerText = "Tắt nhạc 🔇";
+            } else {
+                music.pause();
+                btn.innerText = "Phát nhạc 🎵";
+            }
+        }
+    </script>
+</body>
+
+</html>

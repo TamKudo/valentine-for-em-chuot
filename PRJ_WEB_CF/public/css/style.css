@@ -1,0 +1,421 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@500&display=swap');
+
+:root {
+    --primary-pink: #ff80ab;
+    --soft-pink: #ffebee;
+    --deep-red: #d32f2f;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fce4ec 0%, #ffebee 100%);
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* Card chứa nội dung */
+.container {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(255, 128, 171, 0.2);
+    border: 2px solid white;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+    z-index: 10;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    color: var(--deep-red);
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Gallery Ảnh */
+.photo-gallery {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.photo-item {
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    object-fit: cover;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.photo-item:hover {
+    transform: scale(1.1) rotate(5deg);
+    z-index: 11;
+}
+
+/* Nút bấm */
+.btn-valentine {
+    background: linear-gradient(45deg, #ff4081, #ff80ab);
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(255, 64, 129, 0.4);
+}
+
+.btn-valentine:hover {
+    box-shadow: 0 8px 25px rgba(255, 64, 129, 0.6);
+    transform: translateY(-3px);
+}
+
+/* Hiệu ứng trái tim rơi */
+.heart {
+    position: fixed;
+    top: -10px;
+    pointer-events: none;
+    animation: fall linear forwards;
+    z-index: 1;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(105vh) rotate(360deg);
+    }
+}
+
+#lock-screen {
+    position: fixed;
+    inset: 0;
+    background: #ffebee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.lock-container {
+    text-align: center;
+}
+
+.lock-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid white;
+    margin-bottom: 20px;
+}
+
+.pin-display {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #ddd;
+    transition: 0.2s;
+}
+
+.dot.active {
+    background: #ff4081;
+    transform: scale(1.2);
+}
+
+.pin-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 70px);
+    gap: 15px;
+    justify-content: center;
+}
+
+.pin-grid button {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: none;
+    background: white;
+    font-size: 1.5rem;
+    color: #ff4081;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.pin-grid button:active {
+    background: #ff4081;
+    color: white;
+}
+
+/* Tổng thể màn hình khóa */
+#lock-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff5f7;
+    /* Màu nền hồng nhạt nhẹ nhàng */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.lock-container {
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    box-shadow: 0 10px 25px rgba(255, 182, 193, 0.4);
+}
+
+/* Hiển thị các dấu chấm PIN */
+.pin-display {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.dot {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #ff4d6d;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+/* Khi số được nhập, chấm này sẽ sáng lên (dùng thêm class 'active' bằng JS) */
+.dot.active {
+    background-color: #ff4d6d;
+    transform: scale(1.2);
+}
+
+/* Bàn phím số */
+.pin-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.pin-grid button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid #ffe5ec;
+    background: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff4d6d;
+    cursor: pointer;
+    transition: all 0.2s;
+    outline: none;
+}
+
+.pin-grid button:hover {
+    background-color: #ff4d6d;
+    color: white;
+    border-color: #ff4d6d;
+}
+
+.pin-grid button:active {
+    transform: scale(0.9);
+}
+
+/* Nút số 0 nằm giữa hàng cuối */
+.pin-grid button:last-child {
+    grid-column: 2;
+}
+
+/* Lời nhắn phía dưới */
+#pin-msg {
+    margin-top: 25px;
+    color: #ff4d6d;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Hiệu ứng rung khi nhập sai PIN */
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+.shake {
+    animation: shake 0.2s ease-in-out 0s 2;
+}
+
+/* Tối ưu container màn hình khóa */
+#lock-screen {
+    background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+    /* Gradient hồng mịn */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.lock-container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 50px 30px;
+    border-radius: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Làm đẹp các nút số */
+.pin-grid button {
+    width: 75px;
+    height: 75px;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: #333;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pin-grid button:hover {
+    background: #ffffff;
+    transform: scale(1.05);
+}
+
+.pin-grid button:active {
+    background: rgba(255, 255, 255, 0.5);
+    transform: scale(0.95);
+}
+
+/* Text thông báo */
+#pin-msg {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Container màn hình khóa */
+#lock-screen {
+    background: linear-gradient(180deg, #ffafbd 0%, #ffc3a0 100%);
+    /* Màu hoàng hôn lãng mạn */
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.lock-container {
+    background: rgba(255, 255, 255, 0.25);
+    -webkit-backdrop-filter: blur(15px);
+    /* Hiệu ứng kính mờ iOS */
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 40px 20px;
+    border-radius: 40px;
+    width: 320px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+}
+
+/* Các dấu chấm mật khẩu */
+.pin-display {
+    margin-bottom: 40px;
+}
+
+.dot {
+    width: 14px;
+    height: 14px;
+    border: 1.5px solid #fff;
+    background: transparent;
+    transition: all 0.2s ease;
+}
+
+.dot.active {
+    background: #fff;
+    transform: scale(1.2);
+    box-shadow: 0 0 10px #fff;
+}
+
+/* Bàn phím số kiểu iPhone */
+.pin-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.pin-grid button {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.15);
+    color: white;
+    font-size: 1.8rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+}
+
+.pin-grid button:active {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(0.9);
+}
+
+/* Thông báo sai mật khẩu */
+#pin-msg {
+    margin-top: 25px;
+    font-size: 0.95rem;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Hiệu ứng rung khi sai */
+.shake {
+    animation: shakeAnim 0.3s ease-in-out;
+}
+
+@keyframes shakeAnim {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    75% {
+        transform: translateX(10px);
+    }
+}
