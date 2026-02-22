@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const fs = require('fs'); // Đưa fs lên đầu cho chuyên nghiệp
+const fs = require('fs');
 const app = express();
 
 // 1. Cấu hình View Engine
@@ -14,7 +14,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
     const filePath = path.join(__dirname, 'views', 'index.ejs');
 
-    // Kiểm tra xem file index.ejs có tồn tại không
     if (fs.existsSync(filePath)) {
         res.render('index');
     } else {

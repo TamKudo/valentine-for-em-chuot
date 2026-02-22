@@ -63,7 +63,7 @@ function pressPin(num) {
 
 function updateDots() {
     const dots = document.querySelectorAll('.dot');
-    if (dots.length === 0) return; // Fix lỗi đỏ console ở trang letter
+    if (dots.length === 0) return;
     dots.forEach((dot, idx) => {
         dot.classList.toggle('active', idx < currentPin.length);
     });
@@ -99,7 +99,6 @@ function sayYes() {
 // Khởi tạo trang
 window.onload = () => {
     typeWriter();
-    // Thử phát nhạc khi người dùng click lần đầu vào trang bất kỳ
     document.body.addEventListener('click', () => {
         const m = document.getElementById('bg-music');
         if (m && m.paused) m.play();
